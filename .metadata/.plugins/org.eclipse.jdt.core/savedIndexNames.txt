@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+C:\Users\Joel\Development\java\Export_PDF\.metadata\.plugins\org.eclipse.jdt.core
+2531763997.index
+3342512489.index
+257535242.index
+2930306201.index
+1865797976.index
+3826931167.index
+2872044937.index
+3109247693.index
+1636657140.index
+1512273175.index
+2991036083.index
+1227383771.index
