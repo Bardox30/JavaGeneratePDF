@@ -8,31 +8,34 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;  
 public class CreatePdf  
 {  
-	public static void main(String args[])  
-	{  
-	//created PDF document instance   
-	Document doc = new Document();  
+	public static void main_PDF()  
+	{  		
+		//created PDF document instance   
+		Document doc = new Document();  
+		
 		try  
 		{  
-		//generate a PDF at the specified location  
-		PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Motivation.pdf"));  
-		System.out.println("Motivation PDF created.");  
-		//opens the PDF  
-		doc.open();  
-		//adds paragraph to the PDF file  
-		doc.add(new Paragraph("If you're offered a seat on a rocket ship, don't ask what seat! Just get on."));   
-		//close the PDF file  
-		doc.close();  
-		//closes the writer  
-		writer.close();  
+			//generate a PDF at the specified location  
+			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Datos-persona.pdf"));  
+			System.out.println("Motivation PDF created.");  
+			//opens the PDF  
+			doc.open();
+			//adds paragraph to the PDF file 
+			doc.add(new Paragraph("Datos de persona\n\n"));
+			doc.add(new Paragraph("Nombres y apellidos: "+FrmProgramaPDF.nombre+" "+FrmProgramaPDF.apellido+"\n"));
+			doc.add(new Paragraph("Profesion\t: "+FrmProgramaPDF.profesion));
+			//close the PDF file  
+			doc.close();  
+			//closes the writer  
+			writer.close();  
 		}   
 		catch (DocumentException e)  
 		{  
-		e.printStackTrace();  
+			e.printStackTrace();  
 		}   
 		catch (FileNotFoundException e)  
 		{  
-		e.printStackTrace();  
+			e.printStackTrace();  
 		}  
 	}  
 }  

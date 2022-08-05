@@ -1,0 +1,161 @@
+package CreatePdf;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+
+
+public class FrmProgramaPDF extends JFrame implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JLabel lblNombre;
+	private JLabel lblApellido;
+	private JTextField txtNombre;
+	private JTextField txtApellido;
+	private JLabel lblProfesion;
+	private JTextField txtProfesion;
+	private JButton btnGenerarPDF;
+	private JButton btnCerrar;
+
+	
+	//////////
+	
+	public static String nombre;
+	public static String apellido;
+	public static String profesion;
+	private JTextArea txtS;
+	private JScrollPane scrollPane;
+	private JButton btnBorrar;
+	
+	//////////
+	
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmProgramaPDF frame = new FrmProgramaPDF();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FrmProgramaPDF() {
+		setTitle("Programa para exportar PDF");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 449, 335);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(10, 11, 95, 14);
+		contentPane.add(lblNombre);
+		
+		lblApellido = new JLabel("Apellido");
+		lblApellido.setBounds(10, 54, 95, 14);
+		contentPane.add(lblApellido);
+		
+		txtNombre = new JTextField();
+		txtNombre.setBounds(115, 11, 122, 20);
+		contentPane.add(txtNombre);
+		txtNombre.setColumns(10);
+		
+		txtApellido = new JTextField();
+		txtApellido.setBounds(115, 51, 122, 20);
+		contentPane.add(txtApellido);
+		txtApellido.setColumns(10);
+		
+		lblProfesion = new JLabel("Profesion");
+		lblProfesion.setBounds(10, 101, 95, 14);
+		contentPane.add(lblProfesion);
+		
+		txtProfesion = new JTextField();
+		txtProfesion.setBounds(115, 98, 122, 20);
+		contentPane.add(txtProfesion);
+		txtProfesion.setColumns(10);
+		
+		btnGenerarPDF = new JButton("Generar PDF");
+		btnGenerarPDF.addActionListener(this);
+		btnGenerarPDF.setBounds(286, 7, 122, 23);
+		contentPane.add(btnGenerarPDF);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(286, 92, 107, 23);
+		contentPane.add(btnCerrar);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(10, 142, 413, 143);
+		contentPane.add(scrollPane);
+		
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+		
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(this);
+		btnBorrar.setBounds(287, 50, 106, 23);
+		contentPane.add(btnBorrar);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnBorrar) {
+			actionPerformedBtnBorrar(e);
+		}
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+		if (e.getSource() == btnGenerarPDF) {
+			actionPerformedBtnGenerarPDF(e);
+		}
+	}
+	protected void actionPerformedBtnGenerarPDF(ActionEvent e) {
+		FrmProgramaPDF.nombre=txtNombre.getText();
+		FrmProgramaPDF.apellido=txtApellido.getText();
+		FrmProgramaPDF.profesion=txtProfesion.getText();
+		
+		CreatePdf.main_PDF();
+		
+		txtS.setText("");
+		txtS.append("Nombre	: "+FrmProgramaPDF.nombre+"\n");
+		txtS.append("Apellido	: "+FrmProgramaPDF.apellido+"\n");
+		txtS.append("Profesión		: "+FrmProgramaPDF.profesion+"\n");
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		System.exit(0);
+	}
+	protected void actionPerformedBtnBorrar(ActionEvent e) {
+		txtS.setText("");
+		txtNombre.setText("");
+		txtApellido.setText("");
+		txtProfesion.setText("");
+		txtNombre.requestFocus();
+	}
+}
