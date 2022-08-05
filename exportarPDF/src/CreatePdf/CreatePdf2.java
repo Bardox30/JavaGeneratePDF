@@ -8,7 +8,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;  
 public class CreatePdf2  
 {  
-	public static void main_PDF()  
+	public static void main_PDF2()  
 	{  		
 		//created PDF document instance   
 		Document doc = new Document();  
@@ -16,7 +16,7 @@ public class CreatePdf2
 		try  
 		{  
 			//generate a PDF at the specified location  
-			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Datos-persona.pdf"));  
+			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Datos-persona2.pdf"));  
 			System.out.println("Motivation PDF created.");  
 			//opens the PDF  
 			doc.open();

@@ -11,12 +11,12 @@ public class CreatePdf
 	public static void main_PDF()  
 	{  		
 		//created PDF document instance   
-		Document doc = new Document();  
+		Document doc = new Document();
 		
 		try  
 		{  
 			//generate a PDF at the specified location  
-			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Datos-persona.pdf"));  
+			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Joel\\Documents\\Datos-persona1.pdf"));  
 			System.out.println("Motivation PDF created.");  
 			//opens the PDF  
 			doc.open();
@@ -27,7 +27,7 @@ public class CreatePdf
 			//close the PDF file  
 			doc.close();  
 			//closes the writer  
-			writer.close();  
+			writer.close();
 		}   
 		catch (DocumentException e)  
 		{  

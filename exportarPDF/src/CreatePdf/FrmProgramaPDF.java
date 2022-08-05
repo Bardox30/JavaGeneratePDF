@@ -141,7 +141,7 @@ public class FrmProgramaPDF extends JFrame implements ActionListener {
 		FrmProgramaPDF.apellido=txtApellido.getText();
 		FrmProgramaPDF.profesion=txtProfesion.getText();
 		
-		CreatePdf.main_PDF();
+		CreatePdf3.main_PDF3();
 		
 		txtS.setText("");
 		txtS.append("Nombre	: "+FrmProgramaPDF.nombre+"\n");
